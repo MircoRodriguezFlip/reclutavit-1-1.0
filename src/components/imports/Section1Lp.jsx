@@ -16,7 +16,7 @@ export const Section1Lp = () => {
             </div>
 
             <div className={styles.sectionContenido}>
-                <img src={imgSection1Lp} alt="" />
+                <img src={imgSection1Lp} alt="Agente de Reclutavit esperando tu contacto" />
 
                 <div className={styles.form}>
                     <Form />
