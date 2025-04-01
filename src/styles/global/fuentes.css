@@ -1,0 +1,11 @@
+.light-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+}
+
+.bold-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+}

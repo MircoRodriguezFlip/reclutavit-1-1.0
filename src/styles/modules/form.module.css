@@ -1,0 +1,82 @@
+.form {
+    color: white;
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    padding: 20px;
+    filter: drop-shadow(0px 0px 20px var(--background-color-3));
+}
+
+.camposObligatorios {
+    text-align: end;
+    padding-bottom: 10px;
+    user-select: none;
+}
+
+.textosForm {
+    padding-bottom: 20px;
+}
+
+.campoPrecalificarForm {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.campoPrecalificarForm select,
+.campoPrecalificarForm input,
+.campoPrecalificarForm textarea {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.campoPrecalificarForm label {
+    user-select: none;
+}
+
+.formControl {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 10px;
+    padding: 2px 0;
+    margin-bottom: 14px;
+    background-color: white;
+    box-shadow: 2px 2px 10px 2px var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 16px;
+    resize: none;
+}
+
+.formControl:focus {
+    outline: none;
+    background-color: var(--background-color);
+    color: black;
+}
+
+.textDanger {
+    color: red;
+    padding: 0;
+    margin: 0;
+    margin-top: -18px;
+}
+
+.contentEnvio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+}
+
+@media (min-width: 1400px) {
+    .formControl {
+        padding: 5px 0;
+    }
+}
+
+@media (min-width: 1700px) {
+    .campoPrecalificarForm,
+    .formControl {
+        font-size: 20px;
+    }
+}

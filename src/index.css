@@ -1,0 +1,10 @@
+@import url('../src/styles/global/fuentes.css');
+@import url('../src/styles/global/variables.css');
+@import url('../src/styles/global/navbar.css');
+@import url('../src/styles/global/botones.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
