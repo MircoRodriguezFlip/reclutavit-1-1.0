@@ -7,21 +7,21 @@ import { Form } from './Form';
 export const Section1Lp = () => {
     return (
         <section className={styles.sectionContainer}>
-            <div className={styles.sectionTitulo}>
+            <header className={styles.sectionTitulo}>
                 <h1 className="light-text">
                     ¡Únete y <br />
                     <span className="bold-text">logra tu potencial laboral</span>
                 </h1>
                 <h2 className="light-text">con Reclutavit</h2>
-            </div>
+            </header>
 
-            <div className={styles.sectionContenido}>
+            <section className={styles.sectionContenido}>
                 <img src={imgSection1Lp} alt="Agente de Reclutavit esperando tu contacto" />
 
                 <div className={styles.form}>
                     <Form />
                 </div>
-            </div>
+            </section>
         </section>
     );
 };

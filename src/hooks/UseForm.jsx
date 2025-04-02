@@ -7,7 +7,7 @@ export const useForm = (initialState, submitCallback) => {
     const [loading, setLoading] = useState(false);
 
     const estados = [
-        'Estados',
+        'Estado',
         'Aguascalientes',
         'Baja California',
         'Baja California Sur',
@@ -109,7 +109,7 @@ export const useForm = (initialState, submitCallback) => {
     };
 
     const validateEstado = (newErrors) => {
-        if (!formData.estado.trim() || formData.estado === 'Estados') {
+        if (!formData.estado.trim() || formData.estado === 'Estado') {
             newErrors.estado = 'Selecciona un estado válido.';
         }
     };
