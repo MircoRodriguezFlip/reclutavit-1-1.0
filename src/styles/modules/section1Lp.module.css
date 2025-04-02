@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: -60px;
+    margin-top: -65px;
     background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-2), var(--background-color-3));
 }
 
@@ -58,7 +58,7 @@
 
 @media (min-width: 768px) {
     .sectionContainer {
-        margin-top: -80px;
+        margin-top: -85px;
     }
 
     .sectionTitulo h1,
@@ -90,7 +90,7 @@
 
 @media (min-width: 992px) {
     .sectionContainer {
-        margin-top: -100px;
+        margin-top: -105px;
     }
 
     .sectionTitulo h1,
@@ -131,7 +131,7 @@
 
 @media (min-width: 1400px) {
     .sectionTitulo {
-        padding-top: 30px;
+        padding-top: 60px;
     }
 
     .sectionTitulo h1,
@@ -155,7 +155,7 @@
 
 @media (min-width: 1700px) {
     .sectionContainer {
-        margin-top: -150px;
+        margin-top: -155px;
     }
 
     .sectionTitulo h1,

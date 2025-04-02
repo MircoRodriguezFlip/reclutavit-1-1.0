@@ -1,7 +1,7 @@
 import { Section1Lp } from '../imports/Section1Lp';
 import { Section2Lp } from '../imports/Section2Lp';
 
-export const LandingPage = () => {
+const LandingPage = () => {
     return (
         <main>
             <section>
@@ -14,3 +14,5 @@ export const LandingPage = () => {
         </main>
     );
 };
+
+export default LandingPage;
