@@ -1,0 +1,16 @@
+.error-carga {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.error-carga img {
+    padding-bottom: 10px;
+}
+
+.error-carga h3 {
+    font-size: 20px;
+}

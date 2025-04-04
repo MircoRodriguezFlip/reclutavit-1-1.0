@@ -2,7 +2,7 @@ import img1c1Section2Lp from '../../assets/images/2.png';
 import img1c2Section2Lp from '../../assets/images/3.png';
 import img1c3Section2Lp from '../../assets/images/4.png';
 
-export const categoriasSection2Lp = [
+export const categoriasSectionLp2 = [
     {
         id: 1,
         titulo: 'Atractivo sueldo',

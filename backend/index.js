@@ -16,7 +16,7 @@ app.post('/submit', async (req, res) => {
     try {
         // Guardar los datos en Airtable
         const response = await axios.post(
-            `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_NAME}`,
+            `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_NAME_FORM}`,
             {
                 fields: {
                     nombre: nombre,
@@ -39,6 +39,10 @@ app.post('/submit', async (req, res) => {
         res.status(500).json({ message: 'Hubo un problema al procesar el formulario.' });
     }
 });
+
+// Importar y usar la ruta de job
+const jobRoutes = require('./job');
+app.use('/api', jobRoutes);
 
 // Configurar el servidor para escuchar en el puerto 5000
 const PORT = process.env.PORT || 5000;

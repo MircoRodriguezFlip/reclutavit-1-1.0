@@ -1,10 +1,10 @@
-import styles from '../../styles/modules/section1Lp.module.css';
+import styles from '../../styles/modules/sectionLp1.module.css';
 
 import imgSection1Lp from '../../assets/images/Imagen.png';
 
 import { Form } from './Form';
 
-export const Section1Lp = () => {
+export const SectionLp1 = () => {
     return (
         <section className={styles.sectionContainer}>
             <header className={styles.sectionTitulo}>

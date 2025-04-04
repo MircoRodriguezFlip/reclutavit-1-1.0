@@ -1,8 +1,8 @@
-import styles from '../../styles/modules/section2Lp.module.css';
+import styles from '../../styles/modules/sectionLp2.module.css';
 
-import { categoriasSection2Lp } from '../utils/categoriasSection2Lp';
+import { categoriasSectionLp2 } from '../utils/categoriasSectionLp2';
 
-export const Section2Lp = () => {
+export const SectionLp2 = () => {
     return (
         <section className={styles.sectionContainer}>
             <header className={styles.sectionTitulo}>
@@ -10,7 +10,7 @@ export const Section2Lp = () => {
             </header>
 
             <section className={styles.sectionCategorias}>
-                {categoriasSection2Lp.map((categoria) => (
+                {categoriasSectionLp2.map((categoria) => (
                     <div className={styles.sectionCategoria} key={categoria.id}>
                         <img src={categoria.img} alt={categoria.alt} />
 

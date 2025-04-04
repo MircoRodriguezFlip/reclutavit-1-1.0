@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import { Navbar } from './components/common/Navbar';
+import { Cargando } from './components/utils/cargando';
 import { Footer } from './components/common/Footer';
 import { ScrollToTop } from './hooks/ScrollTop';
 
@@ -24,7 +25,21 @@ function App() {
 
             <Routes>
                 {routes.map(({ path, element, id }) => (
-                    <Route key={id} path={path} element={<Suspense fallback={<div>Cargando...</div>}>{element}</Suspense>} />
+                    <Route
+                        key={id}
+                        path={path}
+                        element={
+                            <Suspense
+                                fallback={
+                                    <div className="cargando">
+                                        <Cargando />
+                                    </div>
+                                }
+                            >
+                                {element}
+                            </Suspense>
+                        }
+                    />
                 ))}
             </Routes>
 

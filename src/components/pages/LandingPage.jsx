@@ -1,15 +1,20 @@
-import { Section1Lp } from '../imports/Section1Lp';
-import { Section2Lp } from '../imports/Section2Lp';
+import { SectionLp1 } from '../imports/SectionLp1';
+import { SectionLp2 } from '../imports/SectionLp2';
+import { SectionLp3 } from '../imports/SectionLp3';
 
 const LandingPage = () => {
     return (
         <main>
             <section>
-                <Section1Lp />
+                <SectionLp1 />
             </section>
 
             <section>
-                <Section2Lp />
+                <SectionLp2 />
+            </section>
+
+            <section>
+                <SectionLp3 />
             </section>
         </main>
     );

@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(to bottom, var(--background-color-3), var(--background-color-2), var(--background-color));
-    padding-bottom: 80px;
 }
 
 .sectionTitulo {
