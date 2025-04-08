@@ -68,6 +68,11 @@ export const SectionLp3 = () => {
                             </div>
                         </NavLink>
                     ))}
+                {!loading && !error && jobs.length === 0 && (
+                    <div className={styles.contenidoAdicional} aria-live="polite">
+                        <p className="light-text">No se encontraron vacantes</p>
+                    </div>
+                )}
             </section>
 
             <NavLink to="/vacantes" aria-label="Ver todas las vacantes disponibles">

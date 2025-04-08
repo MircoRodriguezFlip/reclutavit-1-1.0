@@ -7,13 +7,15 @@ import { Footer } from './components/common/Footer';
 import { ScrollToTop } from './hooks/ScrollTop';
 
 const LandingPage = lazy(() => import('./components/pages/LandingPage'));
+const JobsPage = lazy(() => import('./components/pages/JobsPage'));
 const PoliticasPage = lazy(() => import('./components/pages/PoliticasPage'));
 const ErrorPage = lazy(() => import('./components/pages/ErrorPage'));
 
 const routes = [
     { path: '/', id: 1, element: <LandingPage /> },
-    { path: '/politica-privacidad', id: 2, element: <PoliticasPage /> },
-    { path: '*', id: 3, element: <ErrorPage /> },
+    { path: '/vacantes', id: 2, element: <JobsPage /> },
+    { path: '/politica-privacidad', id: 3, element: <PoliticasPage /> },
+    { path: '*', id: 4, element: <ErrorPage /> },
 ];
 
 function App() {

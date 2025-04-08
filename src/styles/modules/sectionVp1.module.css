@@ -1,0 +1,191 @@
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -65px;
+    background-image: linear-gradient(to bottom, var(--background-color), var(--background-color-2), var(--background-color-3));
+    padding-bottom: 100px;
+}
+
+.sectionTitulo {
+    padding-top: 70px;
+    color: white;
+}
+
+.sectionTitulo h1 {
+    font-size: 30px;
+}
+
+.sectionContenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+}
+
+.buttonVacante {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    border-style: solid;
+    border-color: var(--primary-color);
+    background-color: rgba(41, 57, 105, 0.5);
+    padding: 10px;
+    width: 320px;
+    height: 140px;
+}
+
+.cardContainer:first-child .buttonVacante {
+    border-width: 4px 4px 2px 4px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.cardContainer:not(:first-child):not(:last-child) .buttonVacante {
+    border-width: 2px 4px 2px 4px;
+}
+
+.cardContainer:last-child .buttonVacante {
+    border-width: 2px 4px 4px 4px;
+}
+
+.buttonVacante h3,
+.detallesVacante h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.detallesVacante {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    border-style: solid;
+    border-color: var(--primary-color);
+    background-color: rgba(1, 73, 125, 0.5);
+    padding: 10px;
+    width: 320px;
+}
+
+.cardContainer:not(:last-child) .detallesVacante {
+    border-width: 2px 4px 2px 4px;
+}
+
+.cardContainer:last-child .detallesVacante {
+    border-width: 0px 4px 4px 4px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.detallesVacante p {
+    margin-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+    .cardContainer {
+        width: 576px;
+    }
+
+    .buttonVacante {
+        width: 500px;
+    }
+
+    .detallesVacante {
+        width: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .sectionContainer {
+        margin-top: -85px;
+    }
+
+    .sectionContenido {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 720px;
+    }
+
+    .cardColumn {
+        width: 310px;
+    }
+
+    .cardContainer {
+        width: 310px;
+    }
+
+    .buttonVacante {
+        width: 310px;
+    }
+
+    .cardContainer:first-child .buttonVacante {
+        border-width: 4px 2px 2px 4px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 0px;
+    }
+
+    .cardContainer:not(:first-child):not(:last-child) .buttonVacante {
+        border-width: 2px 2px 2px 4px;
+    }
+
+    .cardContainer:last-child .buttonVacante {
+        border-width: 2px 2px 4px 4px;
+        border-bottom-left-radius: 12px;
+    }
+
+    .detalleColumn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: solid;
+        border-color: var(--primary-color);
+        background-color: rgba(1, 73, 125, 0.5);
+        border-width: 4px 4px 4px 2px;
+        border-bottom-right-radius: 12px;
+        border-top-right-radius: 12px;
+        width: 410px;
+        height: 560px;
+        color: white;
+    }
+
+    .detallesVacante {
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        border-style: none;
+        border-color: none;
+        border-radius: 12px;
+        background-color: transparent;
+        width: 390px;
+        height: 540px;
+    }
+}
+
+@media (min-width: 992px) {
+    .sectionContainer {
+        margin-top: -105px;
+    }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
+}
+
+@media (min-width: 1700px) {
+    .sectionContainer {
+        margin-top: -155px;
+    }
+}

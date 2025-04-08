@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export const ScrollToTop = () => {
-    const location = useLocation();
+    const { pathname } = useLocation();
 
     useEffect(() => {
+        if (pathname === '/vacantes') return;
+
         window.scrollTo(1, 0);
-    }, [location]);
+    }, [pathname]);
 
     return null;
 };
