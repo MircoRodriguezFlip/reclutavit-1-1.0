@@ -109,8 +109,6 @@
 }
 
 .detallesVacante {
-    display: flex;
-    flex-direction: column;
     text-align: start;
     color: white;
     text-decoration: none;
@@ -133,6 +131,14 @@
 
 .detallesVacante p {
     margin-bottom: 10px;
+}
+
+.botonPostular {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 20px;
 }
 
 @media (min-width: 576px) {
