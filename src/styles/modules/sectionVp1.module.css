@@ -33,7 +33,30 @@
 }
 
 .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     margin: 10px 0;
+}
+
+.pagination button {
+    background-color: var(--primary-color);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+.pagination button:disabled {
+    background-color: var(--background-color-3);
+    cursor: not-allowed;
+}
+
+.activePage {
+    font-size: 16px;
 }
 
 .sectionTabla {
@@ -153,19 +176,38 @@
         color: white;
     }
 
+    .active {
+        background-color: var(--primary-color);
+    }
+
     .cardContainer {
         width: 305px;
+        border-radius: none;
+    }
+
+    .cardContainer:hover {
+        background-color: rgba(85, 99, 141, 0.5);
     }
 
     .buttonVacante {
-        padding: 10px;
-        height: 140px;
+        height: 138px;
         width: 310px;
         background-color: transparent;
     }
 
+    .buttonVacante:hover {
+        background-color: rgba(41, 57, 105, 0.7);
+        transition: background-color 0.3s ease;
+    }
+
     .cardContainer:first-child .buttonVacante {
         border-width: 0px 0px 4px 0px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 0px;
+    }
+
+    .cardContainer:last-child .buttonVacante {
+        border-bottom-left-radius: 5px;
     }
 
     .cardContainer:not(:first-child):not(:last-child) .buttonVacante {
@@ -217,16 +259,68 @@
     .sectionContainer {
         margin-top: -105px;
     }
+
+    .sectionTitulo h1 {
+        font-size: 40px;
+    }
+
+    .sectionTabla {
+        width: 900px;
+    }
+
+    .detalleColumn {
+        width: 590px;
+    }
+
+    .detallesVacante {
+        width: 570px;
+    }
 }
 
 @media (min-width: 1200px) {
-}
+    .sectionTabla {
+        width: 1100px;
+    }
 
-@media (min-width: 1400px) {
+    .cardColumn {
+        width: 400px;
+        height: 520px;
+    }
+
+    .cardContainer {
+        width: 395px;
+    }
+
+    .buttonVacante {
+        height: 128px;
+        width: 400px;
+    }
+
+    .buttonVacante h3 {
+        font-size: 18px;
+    }
+
+    .detalleColumn {
+        width: 700px;
+        height: 520px;
+    }
+
+    .detallesVacante {
+        width: 680px;
+        height: 510px;
+    }
 }
 
 @media (min-width: 1700px) {
     .sectionContainer {
         margin-top: -155px;
+    }
+
+    .sectionTitulo h1 {
+        font-size: 60px;
+    }
+
+    .sectionTablaVacantes {
+        margin-top: 50px;
     }
 }

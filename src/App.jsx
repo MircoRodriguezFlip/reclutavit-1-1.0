@@ -13,7 +13,7 @@ const ErrorPage = lazy(() => import('./components/pages/ErrorPage'));
 
 const routes = [
     { path: '/', id: 1, element: <LandingPage /> },
-    { path: '/vacantes', id: 2, element: <JobsPage /> },
+    { path: '/vacantes/:id?', id: 2, element: <JobsPage /> },
     { path: '/politica-privacidad', id: 3, element: <PoliticasPage /> },
     { path: '*', id: 4, element: <ErrorPage /> },
 ];

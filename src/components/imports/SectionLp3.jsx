@@ -21,11 +21,7 @@ export const SectionLp3 = () => {
 
                 let selectedJobs = [];
                 if (records.length > 4) {
-                    const indices = new Set();
-                    while (indices.size < 4) {
-                        indices.add(Math.floor(Math.random() * records.length));
-                    }
-                    selectedJobs = Array.from(indices).map((index) => records[index]);
+                    selectedJobs = records.slice(0, 4);
                 } else {
                     selectedJobs = records;
                 }

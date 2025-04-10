@@ -15,6 +15,8 @@ const getJobs = async () => {
         };
 
         const response = await axios.get(url, config);
+        // Ordenamos los registros de manera descendente por createdTime (de la última a la primera)
+        response.data.records.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
         return response.data;
     } catch (error) {
         console.error('Error al obtener las vacantes desde Airtable:', error);

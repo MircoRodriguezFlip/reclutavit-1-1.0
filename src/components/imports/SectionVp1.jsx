@@ -2,7 +2,7 @@ import styles from '../../styles/modules/sectionVp1.module.css';
 import { Cargando } from '../utils/cargando';
 import { ErrorCarga } from '../utils/ErrorCarga';
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom'; // Importamos useParams
 import axios from 'axios';
 
 export const SectionVp1 = () => {
@@ -15,6 +15,9 @@ export const SectionVp1 = () => {
     // Nueva variable de paginación:
     const itemsPerPage = 4;
     const [currentPage, setCurrentPage] = useState(1);
+
+    // Obtenemos el id de la URL (si existe)
+    const { id: routeId } = useParams();
 
     // Actualiza el valor de isMobile en función del tamaño de la ventana
     useEffect(() => {
@@ -42,26 +45,38 @@ export const SectionVp1 = () => {
         fetchJobs();
     }, []);
 
-    // Si cambia la cantidad de vacantes y la página actual resulta mayor al total de páginas, la ajustamos
+    // Ajustar la paginación si cambia el número de vacantes
     useEffect(() => {
         const totalPages = Math.ceil(jobs.length / itemsPerPage);
         if (totalPages === 0) {
-            // Si aún no se han cargado vacantes, forzamos a que sea 1 para que slice siempre tome el primer segmento
             setCurrentPage(1);
         } else if (currentPage > totalPages) {
             setCurrentPage(totalPages);
         }
     }, [jobs, currentPage]);
 
+    // Si estamos en escritorio, cada vez que se cambie de página reiniciamos activeJob
+    useEffect(() => {
+        if (!isMobile) {
+            setActiveJob(null);
+        }
+    }, [currentPage, isMobile]);
+
+    // Usamos otro useEffect para inicializar el activeJob según el id de la URL
+    useEffect(() => {
+        if (routeId) {
+            setActiveJob(routeId);
+        }
+    }, [routeId]);
+
     const handleClick = (jobId) => {
         setActiveJob((prevActive) => (prevActive === jobId ? null : jobId));
     };
 
-    // Función para renderizar el paginador
+    // Función para renderizar la paginación
     const renderPagination = () => {
         const totalPages = Math.ceil(jobs.length / itemsPerPage);
-        if (totalPages === 0) return null; // No mostrar paginación si no hay datos
-
+        if (totalPages === 0) return null;
         return (
             <div className={styles.pagination}>
                 <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
@@ -82,12 +97,11 @@ export const SectionVp1 = () => {
         );
     };
 
-    // Calculamos las vacantes a mostrar en la página actual
     const indexOfLastJob = currentPage * itemsPerPage;
     const indexOfFirstJob = indexOfLastJob - itemsPerPage;
     const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
 
-    // Renderizado para Desktop: columna izquierda para botones y columna derecha para el detalle activo
+    // Renderizado para Desktop
     if (!isMobile) {
         const activeJobDetails = jobs.find((job) => job.id === activeJob);
 
@@ -111,8 +125,7 @@ export const SectionVp1 = () => {
                     )}
 
                     {!loading && !error && (
-                        <section>
-                            {/* Paginación arriba de la tabla */}
+                        <section className={styles.sectionTablaVacantes}>
                             {renderPagination()}
                             <section className={styles.sectionTabla}>
                                 <div className={styles.cardColumn}>
@@ -122,7 +135,7 @@ export const SectionVp1 = () => {
                                         </div>
                                     ) : (
                                         currentJobs.map((job) => (
-                                            <div key={job.id} className={styles.cardContainer}>
+                                            <div key={job.id} className={`${styles.cardContainer} ${activeJob === job.id ? styles.active : ''}`}>
                                                 <NavLink
                                                     onClick={() => handleClick(job.id)}
                                                     className={styles.buttonVacante}
@@ -146,7 +159,7 @@ export const SectionVp1 = () => {
 
                                 <div className={styles.detalleColumn}>
                                     {activeJobDetails ? (
-                                        <div className={styles.detallesVacante} aria-live="polite">
+                                        <div key={activeJobDetails.id} className={`${styles.detallesVacante} fade-in`} aria-live="polite">
                                             <h3 className="bold-text">{activeJobDetails.fields.title}</h3>
                                             <p className="light-text">
                                                 <strong>Descripción:</strong> <br /> {activeJobDetails.fields.description}
@@ -178,7 +191,6 @@ export const SectionVp1 = () => {
                                     )}
                                 </div>
                             </section>
-                            {/* Paginación debajo de la tabla */}
                             {renderPagination()}
                         </section>
                     )}
@@ -187,7 +199,7 @@ export const SectionVp1 = () => {
         );
     }
 
-    // Renderizado para Mobile: cada card muestra el detalle justo debajo de su botón si está activa
+    // Renderizado para Mobile
     return (
         <section className={styles.sectionContainer}>
             <header className={styles.sectionTitulo}>
@@ -209,9 +221,7 @@ export const SectionVp1 = () => {
 
                 {!loading && !error && (
                     <section className={styles.sectionTabla}>
-                        {/* Paginación arriba */}
                         {renderPagination()}
-
                         <section>
                             {currentJobs.map((job) => (
                                 <div key={job.id} className={styles.cardContainer}>
@@ -260,8 +270,6 @@ export const SectionVp1 = () => {
                                 </div>
                             ))}
                         </section>
-
-                        {/* Paginación debajo */}
                         {renderPagination()}
                     </section>
                 )}
