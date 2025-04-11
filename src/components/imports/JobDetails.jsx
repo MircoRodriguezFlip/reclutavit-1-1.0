@@ -35,7 +35,7 @@ export const JobDetails = ({ job }) => {
             <p className="light-text">
                 <strong>Horario:</strong> <br /> {job.fields.work_days} <br /> {job.fields.work_time}
             </p>
-            <NavLink to={`/postular?id=${job.id}`} aria-label="Postular a la vacante" className={styles.botonPostular}>
+            <NavLink to={`/postular/${job.id}`} aria-label="Postular a la vacante" className={styles.botonPostular}>
                 <button className="boton-1 bold-text">POSTULAR</button>
             </NavLink>
         </div>

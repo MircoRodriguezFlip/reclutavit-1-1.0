@@ -1,8 +1,10 @@
+import { SectionPp1 } from '../imports/SectionPp1';
+
 const PostularPage = () => {
     return (
         <main>
             <section>
-                <h1>postular page</h1>
+                <SectionPp1 />
             </section>
         </main>
     );

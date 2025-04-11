@@ -15,7 +15,7 @@ const ErrorPage = lazy(() => import('./components/pages/ErrorPage'));
 const routes = [
     { path: '/', id: 1, element: <LandingPage /> },
     { path: '/vacantes/:id?', id: 2, element: <JobsPage /> },
-    { path: '/postular', id: 3, element: <PostularPage /> },
+    { path: '/postular/:id', id: 3, element: <PostularPage /> },
     { path: '/politica-privacidad', id: 4, element: <PoliticasPage /> },
     { path: '*', id: 5, element: <ErrorPage /> },
 ];

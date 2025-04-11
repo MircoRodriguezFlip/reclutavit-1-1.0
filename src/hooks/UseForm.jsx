@@ -6,6 +6,45 @@ export const useForm = (initialState, submitCallback) => {
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
 
+    const validateFile = (file) => {
+        const validFormats = [
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'image/jpeg',
+            'image/png',
+        ];
+        const maxSize = 2 * 1024 * 1024;
+
+        if (!validFormats.includes(file.type)) {
+            return 'Formato de archivo no permitido. Usa PDF, Word o imágenes (JPEG/PNG).';
+        }
+
+        if (file.size > maxSize) {
+            return 'El archivo es demasiado grande. Máximo 2 MB.';
+        }
+
+        return '';
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const error = validateFile(file);
+
+            if (error) {
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    cv: error,
+                }));
+                return;
+            }
+
+            setErrors((prevErrors) => ({ ...prevErrors, cv: '' }));
+            setFormData((prevState) => ({ ...prevState, cv: file }));
+        }
+    };
+
     const estados = [
         'Estado',
         'Aguascalientes',
@@ -85,6 +124,8 @@ export const useForm = (initialState, submitCallback) => {
 
         validateEstado(newErrors);
 
+        validateCV(newErrors);
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -114,24 +155,39 @@ export const useForm = (initialState, submitCallback) => {
         }
     };
 
+    const validateCV = (newErrors) => {
+        if (formData.cv) {
+            const valid = formData.cv.type.match(
+                /application\/pdf|application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document|image\/jpeg|image\/png/
+            );
+            if (!valid) {
+                newErrors.cv = 'Formato de archivo no permitido. Usa PDF, Word o imágenes (JPEG/PNG).';
+            }
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateForm()) return;
-
         setLoading(true);
 
         try {
-            const formDataToSend = {
-                nombre: formData.nombre,
-                telefono: formData.telefono,
-                email: formData.email,
-                estado: formData.estado,
-            };
+            const formDataToSend = new FormData();
+            formDataToSend.append('nombre', formData.nombre);
+            formDataToSend.append('telefono', formData.telefono);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('estado', formData.estado);
+            if (formData.vacanteId) {
+                formDataToSend.append('vacanteId', formData.vacanteId);
+            }
+
+            if (formData.cv) {
+                formDataToSend.append('cv', formData.cv);
+            }
 
             const response = await fetch('http://localhost:5000/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formDataToSend),
+                body: formDataToSend,
             });
 
             const data = await response.json();
@@ -153,5 +209,5 @@ export const useForm = (initialState, submitCallback) => {
         setFormData(initialState);
     };
 
-    return { formData, errors, loading, handleChange, handleSubmit, estados, showAlert };
+    return { formData, errors, loading, handleChange, handleSubmit, handleFileChange, estados, showAlert };
 };
