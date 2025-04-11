@@ -1,10 +1,6 @@
-const express = require('express');
 const axios = require('axios');
 
-const router = express.Router();
-
-// Función para obtener las vacantes desde Airtable
-const getJobs = async () => {
+exports.getJobsController = async (req, res) => {
     try {
         const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_NAME_JOB}?filterByFormula={Status}="Activo"`;
         const config = {
@@ -15,23 +11,11 @@ const getJobs = async () => {
         };
 
         const response = await axios.get(url, config);
-        // Ordenamos los registros de manera descendente por createdTime (de la última a la primera)
+        // Ordena los registros de forma descendente por createdTime
         response.data.records.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
-        return response.data;
+        res.status(200).json(response.data);
     } catch (error) {
-        console.error('Error al obtener las vacantes desde Airtable:', error);
-        throw error;
-    }
-};
-
-// Definir la ruta GET para obtener todas las vacantes
-router.get('/jobs', async (req, res) => {
-    try {
-        const jobs = await getJobs();
-        res.status(200).json(jobs);
-    } catch (error) {
+        console.error('Error al obtener las vacantes:', error);
         res.status(500).json({ message: 'Error al obtener las vacantes' });
     }
-});
-
-module.exports = router;
+};

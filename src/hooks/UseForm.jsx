@@ -185,7 +185,7 @@ export const useForm = (initialState, submitCallback) => {
                 formDataToSend.append('cv', formData.cv);
             }
 
-            const response = await fetch('http://localhost:5000/submit', {
+            const response = await fetch('http://localhost:5000/api/submit', {
                 method: 'POST',
                 body: formDataToSend,
             });
