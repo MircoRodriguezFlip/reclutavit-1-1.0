@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.quieroseragentedeseguros.com.mx/sitemap.xml
+Sitemap: https://www.reclutavit.com.mx/sitemap.xml
