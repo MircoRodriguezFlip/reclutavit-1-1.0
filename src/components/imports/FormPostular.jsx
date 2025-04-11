@@ -1,14 +1,17 @@
 import styles from '../../styles/modules/form.module.css';
 
 import { useForm } from '../../hooks/UseForm';
+import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
 export const FormPostular = () => {
     const { id } = useParams();
+
+    const [formSent, setFormSent] = useState(false);
 
     const { formData, errors, loading, handleChange, handleSubmit, handleFileChange, estados, showAlert } = useForm(
         {
@@ -22,11 +25,26 @@ export const FormPostular = () => {
         (success, data) => {
             if (success) {
                 showAlert('Excelente', 'Datos enviados correctamente.<br>Pronto nos pondremos en contacto contigo.', 'success', '#9fc750');
+                setFormSent(true);
             } else {
                 showAlert('Ups', 'Hubo un error al enviar los datos.', 'error', '#1497ee');
             }
         }
     );
+
+    if (formSent) {
+        return (
+            <div className={styles.mensajeExito}>
+                <p className="light-text">
+                    Gracias por enviar tu postulación. <br /> Un agente se pondrá en contacto contigo
+                </p>
+
+                <NavLink to="/" aria-label="Ir a la pagina de inicio">
+                    <button className="boton-2 bold-text">Ir al inicio</button>
+                </NavLink>
+            </div>
+        );
+    }
 
     return (
         <form onSubmit={handleSubmit} className={styles.form} noValidate>

@@ -1,6 +1,6 @@
-import img1c1Section2Lp from '../../assets/images/2.png';
-import img1c2Section2Lp from '../../assets/images/3.png';
-import img1c3Section2Lp from '../../assets/images/4.png';
+import img1c1Section2Lp from '../../assets/images/imagen-section-2-lp-1.webp';
+import img1c2Section2Lp from '../../assets/images/imagen-section-2-lp-2.webp';
+import img1c3Section2Lp from '../../assets/images/imagen-section-2-lp-3.webp';
 
 export const categoriasSectionLp2 = [
     {

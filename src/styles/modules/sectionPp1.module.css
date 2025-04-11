@@ -17,6 +17,102 @@
     font-size: 30px;
 }
 
+.sectionContenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionContenido img {
+    display: none;
+}
+
 .form {
     width: 320px;
+    padding: 20px 0;
+}
+
+@media (min-width: 576px) {
+    .form {
+        width: 450px;
+    }
+}
+
+@media (min-width: 768px) {
+    .sectionContainer {
+        margin-top: -85px;
+    }
+
+    .sectionTitulo {
+        padding-top: 60px;
+    }
+
+    .sectionTitulo h1 {
+        font-size: 40px;
+    }
+
+    .sectionContenido {
+        gap: 10px;
+    }
+
+    .sectionContenido img {
+        display: block;
+        width: 350px;
+    }
+
+    .form {
+        width: 350px;
+    }
+}
+
+@media (min-width: 992px) {
+    .sectionContainer {
+        margin-top: -105px;
+    }
+
+    .sectionContenido img {
+        width: 500px;
+    }
+
+    .form {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .sectionContenido {
+        gap: 20px;
+    }
+
+    .form {
+        width: 350px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .form {
+        width: 450px;
+    }
+}
+
+@media (min-width: 1700px) {
+    .sectionContainer {
+        margin-top: -155px;
+    }
+
+    .sectionTitulo h1 {
+        font-size: 70px;
+    }
+
+    .sectionContenido {
+        gap: 50px;
+    }
+
+    .sectionContenido img {
+        width: 536px;
+    }
+
+    .form {
+        width: 500px;
+    }
 }

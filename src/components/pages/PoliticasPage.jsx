@@ -3,8 +3,8 @@ import styles from '../../styles/modules/politicasPage.module.css';
 import { NavLink } from 'react-router-dom';
 
 const URL_LINK = (
-    <NavLink to="/" title="ir a www.quieroseragentedeseguros.com.mx">
-        www.quieroseragentedeseguros.com.mx
+    <NavLink to="/" title="ir a www.reclutavit.com.mx">
+        www.reclutavit.com.mx
     </NavLink>
 );
 

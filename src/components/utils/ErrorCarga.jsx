@@ -1,4 +1,4 @@
-import imgCargando from '../../assets/images/spiner-1.webp';
+import imgCargando from '../../assets/images/error.webp';
 
 export const ErrorCarga = () => {
     return (

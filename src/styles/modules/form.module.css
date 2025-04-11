@@ -68,9 +68,39 @@
     padding-top: 5px;
 }
 
+.mensajeExito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 491px;
+}
+
+.mensajeExito p {
+    color: white;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .mensajeExito {
+        height: 499px;
+    }
+}
+
+@media (min-width: 992px) {
+    .mensajeExito {
+        height: 501px;
+    }
+}
+
 @media (min-width: 1200px) {
     .textosForm {
         padding-bottom: 10px;
+    }
+
+    .mensajeExito {
+        height: 494px;
     }
 }
 
@@ -82,11 +112,20 @@
     .formControl {
         padding: 5px 0;
     }
+
+    .mensajeExito {
+        height: 536px;
+    }
 }
 
 @media (min-width: 1700px) {
     .campoPrecalificarForm,
     .formControl {
+        font-size: 20px;
+    }
+
+    .mensajeExito {
+        height: 589px;
         font-size: 20px;
     }
 }
