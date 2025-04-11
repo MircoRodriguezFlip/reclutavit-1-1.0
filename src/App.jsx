@@ -22,7 +22,7 @@ const routes = [
 
 function App() {
     return (
-        <BrowserRouter basename="/reclutavit-1-1.0">
+        <BrowserRouter>
             <ScrollToTop />
 
             <Navbar />

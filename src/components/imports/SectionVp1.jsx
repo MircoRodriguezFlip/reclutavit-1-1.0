@@ -29,7 +29,7 @@ export const SectionVp1 = () => {
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/jobs');
+                const response = await axios.get('/reclutavit/backend/jobs.php');
                 setJobs(response.data.records || response.data);
             } catch (err) {
                 setError(err.message || 'Error al obtener las vacantes');

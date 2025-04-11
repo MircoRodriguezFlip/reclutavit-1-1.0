@@ -16,7 +16,7 @@ export const SectionLp3 = () => {
         // Función asíncrona para obtener las vacantes desde el backend
         const fetchJobs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/jobs');
+                const response = await axios.get('/reclutavit/backend/jobs.php');
                 const records = response.data.records;
 
                 let selectedJobs = [];
