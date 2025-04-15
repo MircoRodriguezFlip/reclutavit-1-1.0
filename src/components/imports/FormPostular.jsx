@@ -1,12 +1,13 @@
 import styles from '../../styles/modules/form.module.css';
 
+import { BotonNav } from '../utils/BotonNav';
 import { useForm } from '../../hooks/UseForm';
-import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 export const FormPostular = () => {
     const { id } = useParams();
@@ -39,9 +40,7 @@ export const FormPostular = () => {
                     Gracias por enviar tu postulación. <br /> Un agente se pondrá en contacto contigo
                 </p>
 
-                <NavLink to="/" aria-label="Ir a la pagina de inicio">
-                    <button className="boton-2 bold-text">Ir al inicio</button>
-                </NavLink>
+                <BotonNav />
             </div>
         );
     }

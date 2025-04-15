@@ -2,6 +2,7 @@ import styles from '../../styles/modules/sectionLp3.module.css';
 
 import { Cargando } from '../utils/cargando';
 import { ErrorCarga } from '../utils/ErrorCarga';
+import { BotonNav } from '../utils/BotonNav';
 
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -71,9 +72,9 @@ export const SectionLp3 = () => {
                 )}
             </section>
 
-            <NavLink to="/vacantes" aria-label="Ver todas las vacantes disponibles">
-                <button className="boton-2 bold-text">VER TODOS</button>
-            </NavLink>
+            <BotonNav to="/vacantes" aria-label="Ver todas las vacantes disponibles" title="Haz clic para ver todas las vacantes">
+                VER TODOS
+            </BotonNav>
         </section>
     );
 };

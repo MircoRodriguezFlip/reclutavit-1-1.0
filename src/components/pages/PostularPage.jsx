@@ -2,7 +2,7 @@ import { SectionPp1 } from '../imports/SectionPp1';
 
 const PostularPage = () => {
     return (
-        <main>
+        <main className="fondo-1">
             <section>
                 <SectionPp1 />
             </section>

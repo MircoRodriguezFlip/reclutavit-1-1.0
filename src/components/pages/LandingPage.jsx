@@ -4,7 +4,7 @@ import { SectionLp3 } from '../imports/SectionLp3';
 
 const LandingPage = () => {
     return (
-        <main>
+        <main className="fondo-1">
             <section>
                 <SectionLp1 />
             </section>

@@ -25,3 +25,29 @@
         opacity: 1;
     }
 }
+
+.fondo-1 {
+    background-image: linear-gradient(to left, var(--secondary-color), var(--background-color));
+    background-image: linear-gradient(
+        135deg,
+        var(--background-color) 0%,
+        transparent 10%,
+        transparent 20%,
+        var(--secondary-color) 30%,
+        var(--secondary-color) 30%,
+        transparent 40%,
+        transparent 50%,
+        var(--secondary-color) 60%
+    );
+    background-size: 100% 150%;
+    animation: moveBackground 15s ease-in-out infinite alternate;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}

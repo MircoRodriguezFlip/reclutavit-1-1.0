@@ -2,7 +2,7 @@ import { SectionVp1 } from '../imports/SectionVp1';
 
 const JobsPage = () => {
     return (
-        <main>
+        <main className="fondo-1">
             <section>
                 <SectionVp1 />
             </section>

@@ -1,5 +1,7 @@
 import styles from '../../styles/modules/politicasPage.module.css';
 
+import { BotonNav } from '../utils/BotonNav';
+
 import { NavLink } from 'react-router-dom';
 
 const URL_LINK = (
@@ -513,6 +515,10 @@ const PoliticasPage = () => {
                     El RESPONSABLE comunicará a los TITULARES, cualquier cambio al Aviso de Privacidad de conformidad con lo establecido por LA LEY,
                     pudiendo ser a través de medio electrónico, óptico, sonoro, visual, o a través de cualquier otra tecnología.
                 </p>
+            </section>
+
+            <section>
+                <BotonNav />
             </section>
         </main>
     );
