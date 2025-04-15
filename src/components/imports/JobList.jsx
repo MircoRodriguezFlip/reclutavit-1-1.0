@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export const JobList = ({ jobs, activeJob, onJobClick }) => {
     if (jobs.length === 0) {
         return (
-            <div className={styles.placeholder}>
+            <div className={styles.cardColumn2}>
                 <p className="light-text">No hay vacantes disponibles</p>
             </div>
         );

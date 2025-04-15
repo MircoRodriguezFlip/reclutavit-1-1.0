@@ -94,15 +94,19 @@ export const SectionVp1 = () => {
                     )}
                     {!loading && !error && (
                         <section className={styles.sectionTablaVacantes}>
-                            <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
-                            <section className={styles.sectionTabla}>
-                                <JobList jobs={currentJobs} activeJob={activeJob} onJobClick={handleClick} />
-                                <div className={styles.detalleColumn}>
-                                    <JobDetails job={activeJobDetails} />
-                                </div>
-                            </section>
+                            <div className={styles.tablaVacantes}>
+                                <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
 
-                            <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
+                                <section className={styles.sectionTabla}>
+                                    <JobList jobs={currentJobs} activeJob={activeJob} onJobClick={handleClick} />
+
+                                    <div className={styles.detalleColumn}>
+                                        <JobDetails job={activeJobDetails} />
+                                    </div>
+                                </section>
+
+                                <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
+                            </div>
 
                             <BotonNav />
                         </section>
@@ -125,39 +129,48 @@ export const SectionVp1 = () => {
                         <Cargando />
                     </div>
                 )}
+
                 {!loading && error && (
                     <div className={styles.contenidoAdicional}>
                         <ErrorCarga />
                         <BotonNav />
                     </div>
                 )}
+
                 {!loading && !error && (
                     <section className={styles.sectionTabla}>
                         <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
 
-                        <section>
-                            {currentJobs.map((job) => (
-                                <div key={job.id} className={styles.cardContainer}>
-                                    <NavLink
-                                        onClick={() => handleClick(job.id)}
-                                        className={styles.buttonVacante}
-                                        title={`Ver detalles de ${job.fields.title}`}
-                                    >
-                                        <h3 className="bold-text">{job.fields.title}</h3>
-                                        <p className="light-text">
-                                            <strong>Tipo:</strong> {job.fields.type}
-                                        </p>
-                                        <p className="light-text">
-                                            <strong>Tiempo:</strong> {job.fields.time}
-                                        </p>
-                                        <p className="light-text">
-                                            <strong>Horario:</strong> {job.fields.work_days}
-                                        </p>
-                                    </NavLink>
-                                    {activeJob === job.id && <JobDetails job={job} />}
-                                </div>
-                            ))}
-                        </section>
+                        {currentJobs.length === 0 ? (
+                            <div className={styles.contenidoAdicional}>
+                                <p className="light-text">No hay vacantes disponibles</p>
+                            </div>
+                        ) : (
+                            <section>
+                                {currentJobs.map((job) => (
+                                    <div key={job.id} className={styles.cardContainer}>
+                                        <NavLink
+                                            onClick={() => handleClick(job.id)}
+                                            className={styles.buttonVacante}
+                                            title={`Ver detalles de ${job.fields.title}`}
+                                        >
+                                            <h3 className="bold-text">{job.fields.title}</h3>
+                                            <p className="light-text">
+                                                <strong>Tipo:</strong> {job.fields.type}
+                                            </p>
+                                            <p className="light-text">
+                                                <strong>Tiempo:</strong> {job.fields.time}
+                                            </p>
+                                            <p className="light-text">
+                                                <strong>Horario:</strong> {job.fields.work_days}
+                                            </p>
+                                        </NavLink>
+
+                                        {activeJob === job.id && <JobDetails job={job} />}
+                                    </div>
+                                ))}
+                            </section>
+                        )}
 
                         <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
 
